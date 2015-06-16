@@ -1,0 +1,26 @@
+{
+  "name": "kitty-form-validator",
+  "version": "0.0.0",
+  "homepage": "https://github.com/adamsilver/kitty-form-validator",
+  "authors": [
+    "Adam Silver <adambsilver@gmail.com>"
+  ],
+  "description": "Base class for any form validator for any project requirements",
+  "main": "src/kitty.FormValidator.js",
+  "moduleType": [
+    "globals"
+  ],
+  "keywords": [
+    "kitty",
+    "form",
+    "validator"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
