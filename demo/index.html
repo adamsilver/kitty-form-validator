@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Form Validator Demo</title>
+        <meta name="viewport" content="initial-scale=1.0">
+        <meta name="Author" content="Adam Silver">
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    </head>
+    <body>
+        <h1>Form Validator</h1>
+
+        <form method="get" action="http://google.co.uk">
+            <div class="field">
+                <label for="username">Username</label>
+                <input type="text" name="username" id="username">
+            </div>
+            <div class="field">
+                <label for="password">Password</label>
+                <input type="text" name="password" id="password">
+            </div>
+            <div class="field">
+                <fieldset>
+                    <legend>Favourite colour</legend>
+                    <div class="choice">
+                        <input type="radio" name="colour" id="colour">
+                        <label for="colour">Red</label>
+                    </div>
+                    <div class="choice">
+                        <input type="radio" name="colour" id="colour2">
+                        <label for="colour2">Blue</label>
+                    </div>
+                    <div class="choice">
+                        <input type="radio" name="colour" id="colour3">
+                        <label for="colour3">Yellow</label>
+                    </div>
+                </fieldset>
+            </div>
+            <div class="field">
+                <label for="whatever">Whatever</label>
+                <select name="whatever" id="whatever">
+                    <option value="">Select</option>
+                    <option value="1">Yahoo</option>
+                    <option value="2">Google</option>
+                </select>
+            </div>
+            <div>
+                <input type="submit" value="Submit">
+            </div>
+        </form>
+
+        <script src="../bower_components/kitty-base/src/kitty.js"></script>
+        <script src="../bower_components/kitty-base/src/kitty.clone.js"></script>
+        <script src="../bower_components/kitty-base/src/kitty.inherit.js"></script>
+        <script src="../src/kitty.FormValidator.js"></script>
+        <script>
+           var validator = new kitty.FormValidator(document.forms[0]);
+           validator.validate();
+        </script>
+    </body>
+</html>
