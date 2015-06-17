@@ -2,11 +2,13 @@
 
 Super easy, super flexible client-side Javascript form validation component
 
-## Usage
+## Basic usage
 
-Create a form validator.
+### Create a form validator
 
 	var loginValidator = new FormValidator(formElement);
+
+### Adding validators
 
 Add a validator with only one simple rule for the username control.
 
@@ -53,15 +55,21 @@ Add a validator with two rules for the password control.
 		}
 	]);
 
-Validate the form. Returns `true` when valid, `false` when invalid.
+### Validate the form
+
+Returns `true` when valid, `false` when invalid.
 
 	loginValidator.validate();
+
+### Get form errors
 
 Get form errors. There won't be any errors before validating the form.
 
 	loginValidator.getErrors();
 
-## Params
+## Advanced usage
+
+### Params
 
 If you wanted to reuse a function e.g. to ensure control never have a value greater then X. Then params are for you...
 
@@ -81,7 +89,7 @@ If you wanted to reuse a function e.g. to ensure control never have a value grea
 		}
 	}]);
 
-## How about cross field validation
+### Cross-field validation
 
 Yes, obviously. e.g a form that has two controls in it: `password` and `confirmPassword`. They must match.
 
