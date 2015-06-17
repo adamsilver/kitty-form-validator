@@ -83,18 +83,19 @@ If you wanted to reuse a function e.g. to ensure control never have a value grea
 
 ## How about cross field validation
 
-You can do anything you want, include cross-field validation.
+Yes, obviously. e.g a form that has two controls in it: `password` and `confirmPassword`. They must match.
 
 	loginValidator.addValidator('password', [{
 		method: function(control) {
 			// check it matches another field
 			var valid = false;
-			var someOtherControl = document.getElementById('password_confirm');
+			var someOtherControl = document.getElementById('confirmPassword');
 			if(control.value === someOtherControl.value) {
 				valid = true;
 			}
 			return valid;
-		}
+		},
+		message: "Passwords need to match"
 	}]);
 
 ## Advice
