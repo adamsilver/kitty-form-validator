@@ -61,13 +61,41 @@ Get form errors. There won't be any errors before validating the form.
 
 	loginValidator.getErrors();
 
-## Complex rules
+## Params
 
-This validator can do it all - just name it?
+If you wanted to reuse a function e.g. to ensure control never have a value greater then X. Then params are for you...
 
-### Cross field
+	function maxLengthRule(control, params) {
+		var valid = true;
+		if(control.value.length > params.length) {
+			valid = false;
+		}
+		return valid;
+	}
 
-Coming soon
+	loginValidator.addValidator('password', [{
+		method: maxLengthRule,
+		message: "Password can't be longer than 8 chars",
+		params: {
+			length: 8
+		}
+	}]);
+
+## How about cross field validation
+
+You can do anything you want, include cross-field validation.
+
+	loginValidator.addValidator('password', [{
+		method: function(control) {
+			// check it matches another field
+			var valid = false;
+			var someOtherControl = document.getElementById('password_confirm');
+			if(control.value === someOtherControl.value) {
+				valid = true;
+			}
+			return valid;
+		}
+	}]);
 
 ## Advice
 
