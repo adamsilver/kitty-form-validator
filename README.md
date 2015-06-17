@@ -53,7 +53,7 @@ Add a validator with two rules for the password control.
 		}
 	]);
 
-Check if the form is valid.
+Validate the form. Returns `true` when valid, `false` when invalid.
 
 	loginValidator.validate();
 
