@@ -121,11 +121,9 @@ Yes, obviously. e.g a form that has two controls in it: `password` and `confirmP
 		message: "Passwords need to match"
 	}]);
 
-## Grunt
-
 ## What about reacting to submit, blur, change events?
 
-This is project specific so this component leaves that up to you but you will almost definitely need some code that listens for the submit event, roughly like this:
+This is project-specific so this component leaves this functionality at your discretion. I may well be releasing an additional (bower) component that does this for you. But for now, you will definitely need some code that looks roughly like:
 
 	var formElement = ...;
 	var loginValidator = new kitty.FormValidator(formElement);
@@ -142,5 +140,4 @@ This is project specific so this component leaves that up to you but you will al
 		// And/or in context of the relevant field etc
 	}
 
-
-Write a project specific FormValidator that inherits from kitty-form-validator so that you can define *when* to validate and *how* to display errors etc. Ready made example coming soon.
+Assuming you have more than one form for your project, it would be advisable to use kitty-base components to inherit from this constructor and add all the common bits (like listening for submit events and showing errors) into the inherited constructor.
