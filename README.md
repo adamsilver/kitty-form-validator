@@ -2,7 +2,20 @@
 
 Super easy, super flexible client-side Javascript form validation component
 
-## Basic usage
+## Installation
+
+1. Type `npm install` into console
+2. Type `bower install` into console
+
+## Run tests
+
+1. Type `grunt` into console
+
+## Demo
+
+Open `demo/index.html`
+
+## API (Basics)
 
 ### Create a form validator
 
@@ -63,11 +76,13 @@ Returns `true` when valid, `false` when invalid.
 
 ### Get form errors
 
-Get form errors. There won't be any errors before validating the form.
+Get form errors in the format of `{ controlName: 'username', message: 'Please enter a username.' }`.
 
 	loginValidator.getErrors();
 
-## Advanced usage
+There won't be any errors before validating the form.
+
+## API (more)
 
 ### Params
 
@@ -106,6 +121,26 @@ Yes, obviously. e.g a form that has two controls in it: `password` and `confirmP
 		message: "Passwords need to match"
 	}]);
 
-## Advice
+## Grunt
+
+## What about reacting to submit, blur, change events?
+
+This is project specific so this component leaves that up to you but you will almost definitely need some code that listens for the submit event, roughly like this:
+
+	var formElement = ...;
+	var loginValidator = new kitty.FormValidator(formElement);
+	lib.addEventListener(formElement, 'submit', function(e) {
+		if(!loginValidator.validate()) {
+			var errors = loginValidator.getErrors();
+			showErrors(errors);
+			e.preventDefault
+		}
+	});
+
+	function showErrors(errors) {
+		// Display list of errors at the top of the page/form
+		// And/or in context of the relevant field etc
+	}
+
 
 Write a project specific FormValidator that inherits from kitty-form-validator so that you can define *when* to validate and *how* to display errors etc. Ready made example coming soon.

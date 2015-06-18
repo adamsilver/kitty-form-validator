@@ -4,6 +4,16 @@ module.exports = function(grunt) {
 		jshint: {
 			jshintrc: '.jshintrc',
 			src: ['src/**/*.js']
+		},
+		jasmine: {
+			src: [
+				'src/kitty.FormValidator.js'
+			],
+			options: {
+				specs: ['test/kitty.FormValidator.spec.js'],
+				vendor: ['bower_components/kitty-base/src/kitty.js'],
+				keepRunner: true
+			}
 		}
 	});
 
@@ -11,6 +21,6 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-jscs-checker');
 	grunt.loadNpmTasks('grunt-contrib-jasmine');
 
-    grunt.registerTask('default', ['jshint']);
+    grunt.registerTask('default', ['jshint', 'jasmine']);
 
 };

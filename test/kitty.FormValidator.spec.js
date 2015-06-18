@@ -126,7 +126,7 @@ describe("Form Validator", function() {
 				};
 
 				validator.addValidator("username", [rule]);
-				expect(validator.validators[0].fieldName).toBe("username");
+				expect(validator.validators[0].controlName).toBe("username");
 				expect(validator.validators[0].rules[0]).toBe(rule);
 			});
 		});
@@ -193,7 +193,7 @@ describe("Form Validator", function() {
 		});
 
 		describe("Which contains errors", function() {
-			it("returns the errors", function() {
+			it("Returns the errors", function() {
 				validator = new kitty.FormValidator(mockForm);
 
 				validator.addValidator("username", [rules.usernameInvalid]);
@@ -201,9 +201,9 @@ describe("Form Validator", function() {
 				validator.validate();
 				var errors = validator.getErrors();
 				expect(errors.length).toBe(2);
-				expect(errors[0].fieldName).toBe("username");
+				expect(errors[0].controlName).toBe("username");
 				expect(errors[0].message).toBe(rules.usernameInvalid.message);
-				expect(errors[1].fieldName).toBe("password");
+				expect(errors[1].controlName).toBe("password");
 				expect(errors[1].message).toBe(rules.passwordInvalid.message);
 			});
 		});
